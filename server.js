@@ -32,7 +32,7 @@ mongoose.connect('mongodb://localhost/Tododb');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('young-hamlet-89309.herokuapp.com', function(req, res) {
+app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/api/interface/index.html'));
 });
 
