@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text|Lobster&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <title id = "title">Cloudii</title>
+
+</head>
+
+<body>
+
+  <ul id="headernav">
+
+          <li class="nav-item">
+          <img id="icon" class="nav-item logo" src="/open-iconic-master/svg/cloudy.svg">
+          </li>
+          <li class="nav-item">
+          <h3 id="apiname"> Cloudii </h3>
+          </li>
+
+  <div class="authors">
+  <h4>Luther Wardle</h4>
+  <h4>Cade JustadSadburg</h4>
+</div>
+</ul>
+
+<div id="maincontent">
+
+  <form id = "getWeather">
+    <label>get current temperature for your area</label>
+    <input type="text" placeholder="enter your city">
+    <button type="submit" class="btn btn-info">get weather</button>
+  </form>
+  <div id="weatherResult"></div>
+
+  <form id="averageTempCompare">
+    <label>compare temperature overtime</label>
+    <input type="text" placeholder="enter your city">
+    <input type="text" placeholder="enter current temp">
+    <button type="submit" class="btn btn-info">compare data</button>
+  </form>
+    <div id="avgResult"></div>
+</div>
+  <script>
+    var getWeather = document.getElementById("getWeather")
+    getWeather.addEventListener('submit', function(e){
+      e.preventDefault()
+
+      const formData = new FormData(getWeather)
+
+      fetch('someurl'{
+        method:'post',
+        body: formData
+      })
+      .then(function(response){
+        return response.text();
+      })
+      .then(function(text){
+        console.log(text)
+      })
+      .then(function(text){
+        let elem = document.createElement("span")
+        elem.innerHtml= text
+        document.getElementById("weatherResult").append(elem)
+
+      })
+      .catch(function(error){
+        console.error(error)
+      });
+    });
+
+
+
+    var comparetemp = document.getElementById("averageTempCompare")
+    comparetemp.addEventListener('submit', function(e){
+      e.preventDefault()
+
+      const formData = new FormData(comparetemp)
+
+      fetch('/weather/tasks/checkavg'{
+        method:'post',
+        body: formData
+      })
+      .then(function(response){
+        return response.text();
+      })
+      .then(function(text){
+        console.log(text)
+      }).then(function(text){
+        let elem = document.createElement("span")
+        elem.innerHtml= text
+        document.getElementById("avgResult").append(elem)
+
+      })
+      .catch(function(error){
+        console.error(error)
+      });
+    });
+
+
+  </script>
+</body>
+</html>
