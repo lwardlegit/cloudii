@@ -9,10 +9,9 @@
   },
   "author": "Luther Wardle, Cade JustadSadburg",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^1.19.3"
-  },
+  
   "dependencies": {
+    "nodemon": "^1.19.3",
     "express": "^4.17.1",
     "mongoose": "^5.7.4",
     "request": "^2.88.0"
