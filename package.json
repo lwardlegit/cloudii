@@ -1,0 +1,20 @@
+{
+  "name": "weatherapi",
+  "version": "1.0.0",
+  "description": "a weather api for calculating rainfall",
+  "main": "index.js",
+  "scripts": {
+    "test": "start",
+    "start": "nodemon server.js"
+  },
+  "author": "Luther Wardle, Cade JustadSadburg",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.4",
+    "request": "^2.88.0"
+  }
+}

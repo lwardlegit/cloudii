@@ -1,0 +1,13 @@
+#heading{
+margin:auto;
+text-align: center;
+}
+#about{
+  margin:auto;
+  width: 25%;
+  display: block;
+}
+body{
+  width: 50%;
+  margin:auto;
+}
